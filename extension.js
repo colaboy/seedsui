@@ -27,7 +27,7 @@ function activate(context) {
         return
       }
       // 插入import
-      insertImport()
+      insertImport(componentName)
       // 插入代码
       const item = components[componentName]
       insertComponent(item.code)

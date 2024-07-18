@@ -1,5 +1,6 @@
 const vscode = require('vscode')
 const recast = require('recast')
+const exists = require('./exists')
 
 async function insertImport(componentName) {
   // 读取文件内容
@@ -17,18 +18,7 @@ async function insertImport(componentName) {
   })
 
   // 遍历AST，检查是否已导入componentName
-  let importAlreadyExists = false
-  recast.visit(ast, {
-    visitImportDeclaration(path) {
-      const importSpecifiers = path.node.specifiers.map((specifier) => specifier.local.name)
-      if (importSpecifiers.includes(componentName)) {
-        importAlreadyExists = true
-        console.log('This component is already exists!')
-        return false // 停止遍历
-      }
-      this.traverse(path)
-    }
-  })
+  const importAlreadyExists = exists(ast, componentName)
 
   // 如果没有导入componentName，则添加import语句
   if (!importAlreadyExists) {
