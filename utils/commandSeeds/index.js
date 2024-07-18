@@ -6,7 +6,7 @@ const insertImport = require('./insertImport')
 
 // 插入代码片段
 function commandSeeds(context) {
-  const disposable = vscode.commands.registerCommand('seeds', function () {
+  const disposable = vscode.commands.registerCommand('components', function () {
     // 弹出选择列表
     vscode.window.showQuickPick(Object.keys(components)).then(async (componentName) => {
       if (!componentName) {

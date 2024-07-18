@@ -30,8 +30,12 @@
   "contributes": {
     "commands": [
       {
-        "command": "seeds",
+        "command": "components",
         "title": "SeedsUI React Components"
+      },
+      {
+        "command": "pages",
+        "title": "SeedsUI React Pages"
       }
     ]
   },
