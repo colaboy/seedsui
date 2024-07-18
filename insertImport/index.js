@@ -19,9 +19,15 @@ async function insertImport(componentName) {
     parser: require('recast/parsers/babel')
   })
 
-  // This component was imported
-  const importAlreadyExists = exists(ast, componentName)
-  if (importAlreadyExists) {
+  // This component was imported, 0.无 1.只引入了seedsui-react 2.seedsui-react和组件都引入了
+  const existsCount = exists(ast, componentName)
+  if (existsCount === 2) {
+    return
+  }
+
+  // Only SeedsUI was imported, import component
+  if (existsCount === 1) {
+    console.log('只引入了SeedsUI')
     return
   }
 
