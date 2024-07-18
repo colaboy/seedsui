@@ -2,6 +2,7 @@ const vscode = require('vscode')
 const recast = require('recast')
 const exists = require('./exists')
 const create = require('./create')
+const insert = require('./insert')
 const save = require('./save')
 
 async function insertImport(componentName) {
@@ -19,20 +20,20 @@ async function insertImport(componentName) {
     parser: require('recast/parsers/babel')
   })
 
-  // This component was imported, 0.无 1.只引入了seedsui-react 2.seedsui-react和组件都引入了
+  // This component was imported, 0.无 path.只引入了seedsui-react 2.seedsui-react和组件都引入了
   const existsCount = exists(ast, componentName)
   if (existsCount === 2) {
     return
   }
 
-  // Only SeedsUI was imported, import component
-  if (existsCount === 1) {
-    console.log('只引入了SeedsUI')
-    return
+  // Neither SeedsUI nor component were imported, create import
+  if (existsCount === 0) {
+    create(ast, componentName)
   }
-
-  // SeedsUI and this component both were imported, create import
-  create(ast, componentName)
+  // Only SeedsUI was imported, import component
+  else {
+    insert(existsCount, componentName)
+  }
 
   // 生成修改后的代码
   const newCode = recast.print(ast).code
