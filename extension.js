@@ -2,7 +2,7 @@
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode')
 
-const snippets = require('./snippets')
+const components = require('./components')
 const insertComponent = require('./insertComponent')
 
 // This method is called when your extension is activated
@@ -21,9 +21,9 @@ function activate(context) {
   // The commandId parameter must match the command field in package.json
   const disposable = vscode.commands.registerCommand('seeds', function () {
     // 弹出选择列表
-    vscode.window.showQuickPick(Object.keys(snippets)).then((selection) => {
+    vscode.window.showQuickPick(Object.keys(components)).then((selection) => {
       if (selection) {
-        const item = snippets[selection]
+        const item = components[selection]
         insertComponent(item.code)
       }
     })
