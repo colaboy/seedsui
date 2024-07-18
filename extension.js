@@ -3,7 +3,7 @@
 const vscode = require('vscode')
 
 const snippets = require('./snippets')
-const insertSnippet = require('./insertSnippet')
+const insertComponent = require('./insertComponent')
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -24,7 +24,7 @@ function activate(context) {
     vscode.window.showQuickPick(Object.keys(snippets)).then((selection) => {
       if (selection) {
         const item = snippets[selection]
-        insertSnippet(item.code)
+        insertComponent(item.code)
       }
     })
   })

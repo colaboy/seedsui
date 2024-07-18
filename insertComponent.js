@@ -1,7 +1,7 @@
 const vscode = require('vscode')
 
 // 插入代码片段
-function insertSnippet(snippet) {
+function insertComponent(snippet) {
   const editor = vscode.window.activeTextEditor
   if (editor) {
     editor.edit((editBuilder) => {
@@ -10,4 +10,4 @@ function insertSnippet(snippet) {
   }
 }
 
-module.exports = insertSnippet
+module.exports = insertComponent
