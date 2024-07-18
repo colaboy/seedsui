@@ -2,9 +2,9 @@
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode')
 
-const components = require('./components')
-const insertComponent = require('./insertComponent')
-const insertImport = require('./insertImport')
+const components = require('./utils/components')
+const insertComponent = require('./utils/insertComponent')
+const insertImport = require('./utils/insertImport')
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
