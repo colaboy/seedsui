@@ -1,6 +1,7 @@
 {
-  "name": "seedsui",
-  "displayName": "SeedsUI",
+  "name": "seedsui-react",
+  "displayName": "seedsui-react",
+  "publisher": "MingzhuWang",
   "description": "mobile UI framework",
   "version": "0.0.1",
   "engines": {
@@ -28,7 +29,7 @@
     "commands": [
       {
         "command": "seeds",
-        "title": "Insert SeedsUI Components"
+        "title": "Insert SeedsUI React Components Snippets"
       }
     ]
   },
