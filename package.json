@@ -31,7 +31,7 @@
     "commands": [
       {
         "command": "seeds",
-        "title": "Insert SeedsUI React Components Snippets"
+        "title": "SeedsUI React Components"
       }
     ]
   },
