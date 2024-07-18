@@ -1,6 +1,8 @@
 const vscode = require('vscode')
 const recast = require('recast')
 const exists = require('./exists')
+const create = require('./create')
+const save = require('./save')
 
 async function insertImport(componentName) {
   // 读取文件内容
@@ -17,29 +19,20 @@ async function insertImport(componentName) {
     parser: require('recast/parsers/babel')
   })
 
-  // 遍历AST，检查是否已导入componentName
+  // This component was imported
   const importAlreadyExists = exists(ast, componentName)
-
-  // 如果没有导入componentName，则添加import语句
-  if (!importAlreadyExists) {
-    const importDeclaration = recast.parse(`import { ${componentName} } from 'seedsui-react';\n`)
-      .program.body[0]
-    ast.program.body.unshift(importDeclaration)
-    console.log(`This component was not imported`)
+  if (importAlreadyExists) {
+    return
   }
+
+  // SeedsUI and this component both were imported, create import
+  create(ast, componentName)
 
   // 生成修改后的代码
   const newCode = recast.print(ast).code
 
   // 将修改后的代码写回文件
-  const edit = new vscode.WorkspaceEdit()
-  const fullRange = new vscode.Range(document.positionAt(0), document.positionAt(code.length))
-
-  edit.replace(document.uri, fullRange, newCode)
-
-  await vscode.workspace.applyEdit(edit)
-
-  console.log(`Import ok!`)
+  save(newCode)
   return true
 }
 
