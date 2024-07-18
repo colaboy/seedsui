@@ -9,14 +9,7 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
   "main": "./extension.js",
-  "contributes": {
-    "commands": [{
-      "command": "seedsui.helloWorld",
-      "title": "Hello World"
-    }]
-  },
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",
@@ -30,5 +23,16 @@
     "typescript": "^5.4.5",
     "@vscode/test-cli": "^0.0.9",
     "@vscode/test-electron": "^2.4.0"
-  }
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "seeds",
+        "title": "Insert SeedsUI Components"
+      }
+    ]
+  },
+  "activationEvents": [
+    "onCommand:seeds"
+  ]
 }
