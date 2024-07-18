@@ -39,6 +39,7 @@
     "onCommand:seeds"
   ],
   "dependencies": {
+    "@babel/parser": "^7.24.8",
     "recast": "^0.23.9"
   }
 }

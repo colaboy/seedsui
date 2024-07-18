@@ -4,6 +4,7 @@ const vscode = require('vscode')
 
 const components = require('./components')
 const insertComponent = require('./insertComponent')
+const insertImport = require('./insertImport')
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -21,11 +22,15 @@ function activate(context) {
   // The commandId parameter must match the command field in package.json
   const disposable = vscode.commands.registerCommand('seeds', function () {
     // 弹出选择列表
-    vscode.window.showQuickPick(Object.keys(components)).then((selection) => {
-      if (selection) {
-        const item = components[selection]
-        insertComponent(item.code)
+    vscode.window.showQuickPick(Object.keys(components)).then(async (componentName) => {
+      if (!componentName) {
+        return
       }
+      // 插入import
+      insertImport()
+      // 插入代码
+      const item = components[componentName]
+      insertComponent(item.code)
     })
   })
 
