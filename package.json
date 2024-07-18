@@ -2,8 +2,9 @@
   "name": "seedsui-react",
   "displayName": "seedsui-react",
   "publisher": "MingzhuWang",
+  "icon": "logo.png",
   "description": "mobile UI framework",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.91.0"
   },
@@ -14,7 +15,8 @@
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",
-    "test": "vscode-test"
+    "test": "vscode-test",
+    "build": "vsce package"
   },
   "devDependencies": {
     "@types/vscode": "^1.91.0",
