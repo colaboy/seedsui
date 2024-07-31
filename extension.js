@@ -1,7 +1,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 
-const commandSeeds = require('./utils/commandSeeds')
+const command = require('./utils/command')
 const coding = require('./utils/coding')
 
 // This method is called when your extension is activated
@@ -21,7 +21,7 @@ function activate(context) {
   // Code supplement
   // coding()
   // Command supplement SeedsUI
-  commandSeeds(context)
+  command(context)
 }
 
 // This method is called when your extension is deactivated

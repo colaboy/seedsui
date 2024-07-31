@@ -1,4 +1,4 @@
-# seedsui README
+# Introduce
 
 seedsui-react UI frame framework components code snippets
 
@@ -7,3 +7,15 @@ seedsui-react UI frame framework components code snippets
 Command + Shift + P
 Input 'seeds'
 Choose Components
+
+# Publish
+
+First: execute command to package
+
+```bash
+vsce publish
+```
+
+Second: upload the .vsix file to marketplace
+
+[Marketplace](https://marketplace.visualstudio.com/manage)
