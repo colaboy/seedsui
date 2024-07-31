@@ -4,6 +4,7 @@ const components = require('./../components')
 const pages = require('./../pages')
 const insertComponent = require('./insertComponent')
 const insertImport = require('./insertImport')
+const insertDirectory = require('./insertDirectory/index.js')
 
 // 插入代码片段
 function command(context) {
@@ -30,11 +31,7 @@ function command(context) {
       if (!pageName) {
         return
       }
-      // 插入import
-      insertImport(pageName)
-      // 插入代码
-      const item = pages[pageName]
-      insertComponent(item.code)
+      insertDirectory()
     })
   })
   context.subscriptions.push(pagesCommand)
