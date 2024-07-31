@@ -1,13 +1,13 @@
 // 快捷选择
 module.exports = {
-  Calendar: {
-    prefix: 'seedsui.calendar',
-    code: '<Calendar onChange={() => {}}/>',
-    description: 'Calendar panel'
+  Edit: {
+    prefix: 'seedsui.Edit',
+    code: '<Edit onChange={() => {}}/>',
+    description: 'Edit page'
   },
-  DatePicker: {
-    prefix: 'seedsui.datepicker',
-    code: '<DatePicker onChange={() => {}}/>',
-    description: 'DatePicker component'
+  Detail: {
+    prefix: 'seedsui.Detail',
+    code: '<Detail onChange={() => {}}/>',
+    description: 'Detail page'
   }
 }

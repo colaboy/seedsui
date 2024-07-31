@@ -8,7 +8,11 @@ Command + Shift + P
 Input 'seeds'
 Choose Components
 
-# Publish
+# Develop
+
+## Debug
+
+## Publish
 
 First: execute command to package
 
