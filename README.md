@@ -10,7 +10,19 @@ Choose Components
 
 # Develop
 
+## Environment
+
+Add vsce command to global
+
+```bash
+npm install -g yo generator-code
+```
+
 ## Debug
+
+```
+F5 -> Choose Project -> Command+p
+```
 
 ## Publish
 

@@ -19,7 +19,7 @@ function activate(context) {
   // Now provide the implementation of the command with  registerCommand
   // The commandId parameter must match the command field in package.json
   // Code supplement
-  // coding()
+  coding(context)
   // Command supplement SeedsUI
   command(context)
 }
