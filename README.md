@@ -29,7 +29,7 @@ F5 -> Choose Project -> Command+p
 First: execute command to package
 
 ```bash
-vsce publish
+npm run build
 ```
 
 Second: upload the .vsix file to marketplace
