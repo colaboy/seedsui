@@ -31,7 +31,7 @@ function command(context) {
       if (!pageName) {
         return
       }
-      insertDirectory()
+      insertDirectory(pageName)
     })
   })
   context.subscriptions.push(pagesCommand)

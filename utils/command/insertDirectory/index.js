@@ -23,21 +23,22 @@ function copyDirectory(source, dest) {
   }
 }
 
-async function insertDirectory() {
+// Entry choose
+async function insertDirectory(pageName) {
   const rootPath = vscode.workspace.workspaceFolders?.[0].uri.fsPath
   if (!rootPath) {
     vscode.window.showErrorMessage('No folder or workspace opened')
     return false
   }
   // Template Directory
-  let sourceDir = path.join(rootPath, 'src/library/components/Example/Edit')
+  let sourceDir = path.join(rootPath, `src/library/components/Example/${pageName}`)
   // 模板目录不存在则插件里的代码
   if (!sourceDir) {
-    sourceDir = path.join(__dirname, 'pages/Edit')
+    sourceDir = path.join(__dirname, `pages/${pageName}`)
   }
 
   // Dest Directory
-  const destDir = path.join(rootPath, 'src/Edit')
+  const destDir = path.join(rootPath, `src/${pageName}`)
   console.log(`The directory is detected: ${sourceDir}, ${destDir}`)
   copyDirectory(sourceDir, destDir)
   return true
