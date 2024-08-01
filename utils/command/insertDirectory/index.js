@@ -3,7 +3,7 @@ const path = require('path')
 
 const fs = require('fs')
 
-// Recursion directory
+// Recursion and copy directory
 function copyDirectory(source, dest) {
   if (!fs.existsSync(dest)) {
     fs.mkdirSync(dest, { recursive: true })
@@ -23,6 +23,18 @@ function copyDirectory(source, dest) {
   }
 }
 
+// Get the directory that the current editing
+function getActiveDirectory() {
+  const editor = vscode.window.activeTextEditor
+  if (!editor) {
+    return null
+  }
+  const uri = editor.document.uri
+  const filePath = vscode.workspace.asRelativePath(vscode.Uri.parse(uri).fsPath)
+  const directory = path.dirname(filePath)
+  return directory
+}
+
 // Entry choose
 async function insertDirectory(pageName) {
   const rootPath = vscode.workspace.workspaceFolders?.[0].uri.fsPath
@@ -38,7 +50,16 @@ async function insertDirectory(pageName) {
   }
 
   // Dest Directory
-  const destDir = path.join(rootPath, `src/${pageName}`)
+  let activeDirectory = getActiveDirectory()
+  let destDir = ''
+  // Use the directory that got for the current editing
+  if (activeDirectory) {
+    destDir = path.join(rootPath, `${activeDirectory}/${pageName}`)
+  }
+  // 获取不到当前编辑页面的目录, 则使用src做为目录
+  else {
+    destDir = path.join(rootPath, `src/${pageName}`)
+  }
   console.log(`The directory is detected: ${sourceDir}, ${destDir}`)
   copyDirectory(sourceDir, destDir)
   return true
