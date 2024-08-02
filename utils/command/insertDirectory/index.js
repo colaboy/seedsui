@@ -46,7 +46,9 @@ async function insertDirectory(pageName) {
   let sourceDir = path.join(rootPath, `src/library/components/Example/${pageName}`)
   // 模板目录不存在则插件里的代码
   if (!sourceDir) {
-    sourceDir = path.join(__dirname, `pages/${pageName}`)
+    // sourceDir = path.join(__dirname, `pages/${pageName}`)
+    vscode.window.showErrorMessage('Check if "src/library" directory in your project')
+    return false
   }
 
   // Dest Directory
