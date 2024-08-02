@@ -1,36 +1,44 @@
 const vscode = require('vscode')
-
+const insertImport = require('./../command/insertImport')
 const components = require('./../components')
+
+// 替换代码
+function replaceCode({ edit, document, lineText, position }) {
+  console.log(`trigger replace`)
+  for (let componentName in components) {
+    if (lineText.replace(/\s+$/, '').endsWith(componentName)) {
+      console.log(`Auto complete${componentName}`)
+
+      const newText = lineText.replace(`${componentName}`, components[componentName].code)
+      edit.replace(
+        document.uri,
+        new vscode.Range(position.line, 0, position.line, lineText.length),
+        newText
+      )
+      vscode.workspace.applyEdit(edit)
+      // 插入import
+      setTimeout(() => {
+        insertImport(componentName)
+      }, 100)
+      break
+    }
+  }
+}
 
 // 插入代码片段
 function coding(context) {
   const listener = vscode.workspace.onDidChangeTextDocument((event) => {
-    const editor = vscode.window.activeTextEditor
-    if (editor && event.document === editor.document) {
-      const changes = event.contentChanges
-      for (let change of changes) {
-        const text = change.text
-        const range = change.range
+    // 获取变化的范围
+    const changeRanges = event.contentChanges
+    const edit = new vscode.WorkspaceEdit()
+    const document = event.document
+    const position = changeRanges[0].range.start
+    const lineText = document.lineAt(position.line).text
 
-        // 检测输入
-        if (components[text] && range.start.character >= 1) {
-          console.log(`Listening to the ${text}`)
-          const line = editor.document.lineAt(range.start.line)
-          const lineText = line.text
-
-          // 确保只有<Calendar而不是<Calendar onChange={() => {}}/>或其他变体
-          const calendarIndex = lineText.indexOf(`<${text}`)
-          if (calendarIndex !== -1) {
-            console.log(`Auto complete${text}`)
-            const edit = new vscode.WorkspaceEdit()
-            const startPos = range.start.with(undefined, calendarIndex)
-            const endPos = range.end.with(undefined, calendarIndex + 9)
-            const calendarRange = new vscode.Range(startPos, endPos)
-
-            edit.replace(editor.document.uri, calendarRange, components[text].code)
-            vscode.workspace.applyEdit(edit)
-          }
-        }
+    for (const change of changeRanges) {
+      // 按Tab键补全代码
+      if (change.text === ' ' || change.text === '\t' || change.text === '\n') {
+        replaceCode({ edit, document, lineText, position })
       }
     }
   })

@@ -4,9 +4,20 @@ seedsui-react UI frame framework components code snippets
 
 ## Extension Usage
 
+### Choose command
+
+```
 Command + Shift + P
 Input 'seeds'
 Choose Components
+```
+
+### Input
+
+1. Input component name
+2. Press "Tab" keyboard
+
+For instance: Input `<Calendar` then press "Tab" keyboard
 
 # Develop
 

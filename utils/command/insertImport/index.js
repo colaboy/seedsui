@@ -6,6 +6,10 @@ const insert = require('./insert')
 const save = require('./save')
 
 async function insertImport(componentName) {
+  if (componentName.indexOf('<') !== -1) {
+    componentName = componentName.replace('<', '')
+  }
+
   // 读取文件内容
   const editor = vscode.window.activeTextEditor
   if (!editor) {
@@ -16,9 +20,15 @@ async function insertImport(componentName) {
   const code = document.getText()
 
   // 解析代码为AST
-  const ast = recast.parse(code, {
-    parser: require('recast/parsers/babel')
-  })
+  let ast = null
+  try {
+    ast = recast.parse(code, {
+      parser: require('recast/parsers/babel')
+    })
+  } catch (error) {
+    console.log(error)
+    return false
+  }
 
   // This component was imported, 0.无 path.只引入了seedsui-react 2.seedsui-react和组件都引入了
   const existsCount = exists(ast, componentName)

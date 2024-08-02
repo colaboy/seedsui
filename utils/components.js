@@ -1,6 +1,6 @@
 // 快捷选择
 module.exports = {
-  Actionsheet: {
+  '<Actionsheet': {
     description: 'Actionsheet',
     code: `<Actionsheet.Combo
         // placeholder="Please select"
@@ -20,19 +20,19 @@ module.exports = {
         // }}
       />`
   },
-  Badge: {
+  '<Badge': {
     description: 'Badge',
     code: `<Badge maxLength={2} ellipsis={'+'}>
       1000
     </Badge>`
   },
-  Button: {
+  '<Button': {
     description: 'Button',
     code: `<Button className="primary" style={buttonStyle}>
       primary
     </Button>`
   },
-  Calendar: {
+  '<Calendar': {
     description: 'Calendar panel',
     code: `<Calendar
       // type="month" // week | month
@@ -51,11 +51,11 @@ module.exports = {
       // onSlideChange={() => {}}
     />`
   },
-  Card: {
+  '<Card': {
     description: 'Button',
     code: `<Card>1000</Card>`
   },
-  Cascader: {
+  '<Cascader': {
     description: 'Cascader',
     code: `<Cascader.Combo
       // list={list}
@@ -73,14 +73,14 @@ module.exports = {
       // }}
     />`
   },
-  Chat: {
+  '<Chat': {
     description: 'Chat',
     code: `<Chat caption="11">1000</Chat>
     <Chat caption="11" className="right">
       1000
     </Chat>`
   },
-  Checkbox: {
+  '<Checkbox': {
     description: 'Chat',
     code: `<Checkbox
       // checked={value}
@@ -97,17 +97,17 @@ module.exports = {
       }
     })`
   },
-  Col: {
+  '<Col': {
     description: 'Col',
     code: `<Col span={8} className="color-sub">
       Customer Name:
     </Col>`
   },
-  Counter: {
+  '<Counter': {
     description: 'Counter',
     code: `<Counter from={20} to={500} />`
   },
-  DatePicker: {
+  '<DatePicker': {
     description: 'DatePicker component',
     code: `<DatePicker.Combo
         placeholder="Please select"
@@ -119,7 +119,7 @@ module.exports = {
         // onChange={setValue}
     />`
   },
-  Image: {
+  '<Image': {
     description: 'Image',
     code: `<Image
       // list={list}
@@ -137,7 +137,7 @@ module.exports = {
       // }}
     />`
   },
-  IndexBar: {
+  '<IndexBar': {
     description: 'IndexBar',
     code: `<div className="position-relative" style={{ height: '500px', overflow: 'hidden' }}>
     <IndexBar>
@@ -166,7 +166,7 @@ module.exports = {
       </IndexBar>
     <div/>`
   },
-  Input: {
+  '<Input': {
     description: 'Input',
     code: `<Input.Text
       inputProps={{
@@ -182,7 +182,7 @@ module.exports = {
       allowClear={'exclusion-ricon'}
     />`
   },
-  Layout: {
+  '<Layout': {
     description: 'Input',
     code: `<Layout safeArea className="full">
       <Layout.Header>Header</Layout.Header>
@@ -192,11 +192,11 @@ module.exports = {
       <Layout.Footer>Footer</Footer>
     </Layout>`
   },
-  Loading: {
+  '<Loading': {
     description: 'Loading',
     code: `Loading.show()`
   },
-  Location: {
+  '<Location': {
     description: 'Location',
     code: `<Location.Combo
       // editable
@@ -228,7 +228,7 @@ module.exports = {
       // }}
     />`
   },
-  Map: {
+  '<Map': {
     description: 'Map',
     code: `<MapContainer
       // ref={mapRef}
@@ -242,19 +242,19 @@ module.exports = {
     >
     </MapContainer>`
   },
-  Mark: {
+  '<Mark': {
     description: 'Mark',
     code: `<Mark className="primary" style={buttonStyle}>
       primary
     </Mark>`
   },
-  Modal: {
+  '<Modal': {
     description: 'Modal',
     code: `Modal.alert({
       content: 'alert content'
     })`
   },
-  Picker: {
+  '<Picker': {
     description: 'Picker',
     code: `<Picker.Combo
         // placeholder="Please select"
@@ -266,13 +266,13 @@ module.exports = {
         // }}
       />`
   },
-  QRCode: {
+  '<QRCode': {
     description: 'QRCode',
     code: `<QRCode text={url}>
       <img style={Logo} alt="" src="//res.waiqin365.com/d/dinghuo365/logo.png" />
     </QRCode>`
   },
-  Radio: {
+  '<Radio': {
     description: 'Radio',
     code: `<Radio
       // checked={value}
@@ -281,7 +281,7 @@ module.exports = {
       radio
     </Radio>`
   },
-  Row: {
+  '<Row': {
     description: 'Row',
     code: `<Row className="border-b" style={{ padding: '10px 0', marginLeft: '12px' }}>
       <Col span={8} className="color-sub">
@@ -294,11 +294,11 @@ module.exports = {
       <Col span={16}>Twenty-eight</Col>
     </Row>`
   },
-  SafeArea: {
+  '<SafeArea': {
     description: 'SafeArea',
     code: `<SafeArea />`
   },
-  Select: {
+  '<Select': {
     description: 'Select',
     code: `<Select.Combo
       // placeholder="Please select"
@@ -310,7 +310,7 @@ module.exports = {
       // }}
     />`
   },
-  Selector: {
+  '<Selector': {
     description: 'Selector',
     code: `<Selector
       // multiple
@@ -322,7 +322,7 @@ module.exports = {
       // }}
     />`
   },
-  Signature: {
+  '<Signature': {
     description: 'Signature',
     code: `<Signature.Combo
       // placeholder="Please select"
@@ -335,7 +335,7 @@ module.exports = {
       // }}
     />`
   },
-  Switch: {
+  '<Switch': {
     description: 'Switch',
     code: `<Switch
       className="notext"
@@ -346,7 +346,7 @@ module.exports = {
       onChange={setChecked}
     />`
   },
-  Tabs: {
+  '<Tabs': {
     description: 'Tabs',
     code: `<Tabs
       className="tabs-line tabs-line-width-percent80 border-b"
@@ -362,7 +362,7 @@ module.exports = {
       content: 'content'
     })`
   },
-  Tooltip: {
+  '<Tooltip': {
     description: 'Tooltip',
     code: `<Tooltip
       content={<p>123412341234</p>}
@@ -373,7 +373,7 @@ module.exports = {
       <div style={{ margin: 100 }}>点击</div>
     </Tooltip>`
   },
-  Transfer: {
+  '<Transfer': {
     description: 'Transfer',
     code: `<Transfer.Combo
       modal="page"
@@ -403,7 +403,7 @@ module.exports = {
       }}
     />`
   },
-  TreePicker: {
+  '<TreePicker': {
     description: 'Transfer',
     code: `<TreePicker.Combo
       placeholder="Please select"
@@ -450,7 +450,7 @@ module.exports = {
       }}
     />`
   },
-  Upload: {
+  '<Upload': {
     description: 'Upload',
     code: `<Upload
       list={list}
