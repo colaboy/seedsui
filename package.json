@@ -4,7 +4,7 @@
   "publisher": "MingzhuWang",
   "icon": "logo.png",
   "description": "mobile UI framework",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "engines": {
     "vscode": "^1.91.0"
   },
@@ -40,7 +40,7 @@
     ]
   },
   "activationEvents": [
-    "onCommand:seeds"
+    "onStartupFinished"
   ],
   "dependencies": {
     "@babel/parser": "^7.24.8",
