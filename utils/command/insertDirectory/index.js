@@ -44,8 +44,9 @@ async function insertDirectory(pageName) {
   }
   // Template Directory
   let sourceDir = path.join(rootPath, `src/library/components/Example/${pageName}`)
-  // 模板目录不存在则插件里的代码
-  if (!sourceDir) {
+
+  // Not found the template directory
+  if (!fs.existsSync(sourceDir)) {
     // sourceDir = path.join(__dirname, `pages/${pageName}`)
     vscode.window.showErrorMessage('Check if "src/library" directory in your project')
     return false
