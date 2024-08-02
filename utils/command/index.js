@@ -8,6 +8,12 @@ const insertDirectory = require('./insertDirectory/index.js')
 
 // 插入代码片段
 function command(context) {
+  // 跳转官网
+  const officialCommand = vscode.commands.registerCommand('official', function () {
+    vscode.env.openExternal(vscode.Uri.parse('https://colaboy.github.io/seedsui-react'))
+  })
+  context.subscriptions.push(officialCommand)
+
   // 组件选择
   const componentsCommand = vscode.commands.registerCommand('components', function () {
     // 弹出选择列表

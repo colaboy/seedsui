@@ -1,6 +1,6 @@
 # Introduce
 
-seedsui-react UI frame framework components code snippets
+[seedsui-react](https://colaboy.github.io/seedsui-react/) UI frame framework components code snippets
 
 ## Extension Usage
 
