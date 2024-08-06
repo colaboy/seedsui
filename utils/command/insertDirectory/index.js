@@ -24,7 +24,8 @@ function copyDirectory(source, dest) {
 }
 
 // Get the directory that the current editing
-function getActiveDirectory() {
+function getActiveDirectory(pageName) {
+  const rootPath = vscode.workspace.workspaceFolders?.[0].uri.fsPath
   const editor = vscode.window.activeTextEditor
   if (!editor) {
     return null
@@ -32,11 +33,12 @@ function getActiveDirectory() {
   const uri = editor.document.uri
   const filePath = vscode.workspace.asRelativePath(vscode.Uri.parse(uri).fsPath)
   const directory = path.dirname(filePath)
-  return directory
+  // return directory
+  return path.join(rootPath, `${directory}/${pageName}`)
 }
 
 // Entry choose
-async function insertDirectory(pageName) {
+async function insertDirectory(pageName, folderPath) {
   const rootPath = vscode.workspace.workspaceFolders?.[0].uri.fsPath
   if (!rootPath) {
     vscode.window.showErrorMessage('No folder or workspace opened')
@@ -53,17 +55,25 @@ async function insertDirectory(pageName) {
   }
 
   // Dest Directory
-  let activeDirectory = getActiveDirectory()
+  let activeDirectory = getActiveDirectory(pageName)
   let destDir = ''
+
+  // Specified directory
+  if (folderPath) {
+    destDir = path.join(folderPath, `${pageName}`)
+    console.log('Specified directory:', folderPath, destDir)
+    console.log('\n')
+  }
   // Use the directory that got for the current editing
-  if (activeDirectory) {
+  else if (activeDirectory) {
     destDir = path.join(rootPath, `${activeDirectory}/${pageName}`)
   }
   // 获取不到当前编辑页面的目录, 则使用src做为目录
   else {
     destDir = path.join(rootPath, `src/${pageName}`)
   }
-  console.log(`The directory is detected: ${sourceDir}, ${destDir}`)
+
+  console.log(`The directory is detected: from "${sourceDir}" to "${destDir}:`)
   copyDirectory(sourceDir, destDir)
   return true
 }

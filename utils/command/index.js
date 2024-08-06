@@ -31,13 +31,13 @@ function command(context) {
   context.subscriptions.push(componentsCommand)
 
   // 页面选择
-  const pagesCommand = vscode.commands.registerCommand('pages', function () {
+  const pagesCommand = vscode.commands.registerCommand('pages', function (folderUri) {
     // 弹出选择列表
     vscode.window.showQuickPick(Object.keys(pages)).then(async (pageName) => {
       if (!pageName) {
         return
       }
-      insertDirectory(pageName)
+      insertDirectory(pageName, folderUri?.path)
     })
   })
   context.subscriptions.push(pagesCommand)

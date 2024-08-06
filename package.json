@@ -28,18 +28,27 @@
     "typescript": "^5.4.5"
   },
   "contributes": {
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "pages",
+          "group": "new",
+          "when": "explorerResourceIsFolder"
+        }
+      ]
+    },
     "commands": [
       {
         "command": "official",
-        "title": "SeedsUI React Official"
+        "title": "SeedsUI: visit official"
       },
       {
         "command": "components",
-        "title": "SeedsUI React Components"
+        "title": "SeedsUI: insert components"
       },
       {
         "command": "pages",
-        "title": "SeedsUI React Pages"
+        "title": "SeedsUI: create template page"
       }
     ]
   },
