@@ -24,8 +24,7 @@ function copyDirectory(source, dest) {
 }
 
 // Get the directory that the current editing
-function getActiveDirectory(pageName) {
-  const rootPath = vscode.workspace.workspaceFolders?.[0].uri.fsPath
+function getActiveDirectory() {
   const editor = vscode.window.activeTextEditor
   if (!editor) {
     return null
@@ -33,8 +32,7 @@ function getActiveDirectory(pageName) {
   const uri = editor.document.uri
   const filePath = vscode.workspace.asRelativePath(vscode.Uri.parse(uri).fsPath)
   const directory = path.dirname(filePath)
-  // return directory
-  return path.join(rootPath, `${directory}/${pageName}`)
+  return directory
 }
 
 // Entry choose
@@ -55,7 +53,7 @@ async function insertDirectory(pageName, folderPath) {
   }
 
   // Dest Directory
-  let activeDirectory = getActiveDirectory(pageName)
+  let activeDirectory = getActiveDirectory()
   let destDir = ''
 
   // Specified directory
@@ -73,7 +71,7 @@ async function insertDirectory(pageName, folderPath) {
     destDir = path.join(rootPath, `src/${pageName}`)
   }
 
-  console.log(`The directory is detected: from "${sourceDir}" to "${destDir}:`)
+  console.log(`The directory is detected: \n from "${sourceDir}" \nto "${destDir}:`)
   copyDirectory(sourceDir, destDir)
   return true
 }
