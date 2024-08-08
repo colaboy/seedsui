@@ -1,8 +1,8 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 
-const command = require('./utils/command')
-const coding = require('./utils/coding')
+const command = require('./entry/command')
+const coding = require('./entry/coding')
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
