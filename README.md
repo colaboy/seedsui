@@ -1,10 +1,19 @@
 # Introduce
 
-[seedsui-react](https://colaboy.github.io/seedsui-react/) UI frame framework components code snippets
+[seedsui-react](https://colaboy.github.io/seedsui-react/) UI framework Pages and Components code automation
 
 ## Extension Usage
 
-### Choose command
+### Menu
+
+Create Page code or Component code
+
+1. Right click folder or editor area
+2. Choose "SeedsUI: ..."
+
+### Command
+
+Create Page code or Component code
 
 ```
 Command + Shift + P
@@ -12,12 +21,11 @@ Input 'seeds'
 Choose Components
 ```
 
-### Input
+Auto complete Component code
 
 1. Input component name
 2. Press "Tab" keyboard
-
-For instance: Input `<Calendar` then press "Tab" keyboard
+   For instance: Input `<Calendar` then press "Tab" keyboard
 
 # Develop
 
