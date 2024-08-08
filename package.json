@@ -1,6 +1,7 @@
 {
   "name": "seedsui-react",
   "displayName": "seedsui-react",
+  "repository": "https://github.com/colaboy/seedsui-react-vscode-plugin",
   "publisher": "MingzhuWang",
   "icon": "logo.png",
   "description": "mobile UI framework",
