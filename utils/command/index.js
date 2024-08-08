@@ -1,13 +1,17 @@
 const vscode = require('vscode')
 
-const components = require('./../components')
-const pages = require('./../pages')
+const components = require('./../utils/components')
+const pages = require('./../utils/pages')
+const getProjectName = require('./../utils/getProjectName')
 const insertComponent = require('./insertComponent')
 const insertImport = require('./insertImport')
 const insertDirectory = require('./insertDirectory/index.js')
 
 // 插入代码片段
 function command(context) {
+  const projectName = getProjectName()
+  console.log('项目名称: ' + projectName)
+
   // 跳转官网
   const officialCommand = vscode.commands.registerCommand('official', function () {
     vscode.env.openExternal(vscode.Uri.parse('https://colaboy.github.io/seedsui-react'))
@@ -33,12 +37,14 @@ function command(context) {
   // 页面选择
   const pagesCommand = vscode.commands.registerCommand('pages', function (folderUri) {
     // 弹出选择列表
-    vscode.window.showQuickPick(Object.keys(pages)).then(async (pageName) => {
-      if (!pageName) {
-        return
-      }
-      insertDirectory(pageName, folderUri?.path)
-    })
+    vscode.window
+      .showQuickPick(Object.keys(pages[projectName.includes('web') ? 'web' : 'mobile']))
+      .then(async (pageName) => {
+        if (!pageName) {
+          return
+        }
+        insertDirectory(pageName, folderUri?.path)
+      })
   })
   context.subscriptions.push(pagesCommand)
 }

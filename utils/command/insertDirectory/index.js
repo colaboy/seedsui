@@ -2,6 +2,7 @@ const vscode = require('vscode')
 const path = require('path')
 
 const fs = require('fs')
+const pages = require('./../../utils/pages')
 
 // Recursion and copy directory
 function copyDirectory(source, dest) {

@@ -1,6 +1,6 @@
 const vscode = require('vscode')
 const insertImport = require('./../command/insertImport')
-const components = require('./../components')
+const components = require('./../utils/components')
 
 // 替换代码
 function replaceCode({ edit, document, lineText, position }) {
