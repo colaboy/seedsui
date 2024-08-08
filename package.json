@@ -4,7 +4,7 @@
   "publisher": "MingzhuWang",
   "icon": "logo.png",
   "description": "mobile UI framework",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "engines": {
     "vscode": "^1.91.0"
   },
