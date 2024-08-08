@@ -14,21 +14,25 @@ function command(context) {
 
   // 跳转官网
   const officialCommand = vscode.commands.registerCommand('official', function () {
-    vscode.env.openExternal(vscode.Uri.parse('https://colaboy.github.io/seedsui-react'))
+    vscode.env.openExternal(
+      vscode.Uri.parse(
+        platform === 'web' ? 'https://ant.design/' : 'https://colaboy.github.io/seedsui-react'
+      )
+    )
   })
   context.subscriptions.push(officialCommand)
 
   // 组件选择
   const componentsCommand = vscode.commands.registerCommand('components', function () {
     // 弹出选择列表
-    vscode.window.showQuickPick(Object.keys(components)).then(async (componentName) => {
+    vscode.window.showQuickPick(Object.keys(components[platform])).then(async (componentName) => {
       if (!componentName) {
         return
       }
+      const item = components[platform][componentName]
       // 插入import
-      insertImport(componentName)
+      insertImport(componentName, platform === 'web' ? 'antd' : 'seedsui-react')
       // 插入代码
-      const item = components[componentName]
       insertComponent(item.code)
     })
   })

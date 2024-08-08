@@ -1,15 +1,20 @@
 const vscode = require('vscode')
 const insertImport = require('./../command/insertImport')
 const components = require('./../utils/components')
+const getProjectName = require('./../utils/getProjectName')
 
 // 替换代码
 function replaceCode({ edit, document, lineText, position }) {
+  const projectName = getProjectName()
+  const platform = projectName.includes('web') ? 'web' : 'mobile'
+
   console.log(`trigger replace`)
-  for (let componentName in components) {
+  let componentList = components[platform]
+  for (let componentName in componentList) {
     if (lineText.replace(/\s+$/, '').endsWith(componentName)) {
       console.log(`Auto complete${componentName}`)
 
-      const newText = lineText.replace(`${componentName}`, components[componentName].code)
+      const newText = lineText.replace(`${componentName}`, componentList[componentName].code)
       edit.replace(
         document.uri,
         new vscode.Range(position.line, 0, position.line, lineText.length),
@@ -18,7 +23,7 @@ function replaceCode({ edit, document, lineText, position }) {
       vscode.workspace.applyEdit(edit)
       // 插入import
       setTimeout(() => {
-        insertImport(componentName)
+        insertImport(componentName, platform === 'web' ? 'antd' : 'seedsui-react')
       }, 100)
       break
     }

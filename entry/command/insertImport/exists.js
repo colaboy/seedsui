@@ -1,7 +1,7 @@
 const recast = require('recast')
 
 // 遍历AST，检查是否已导入componentName
-function exists(ast, componentName) {
+function exists(ast, componentName, componentLibrary) {
   // 0.无 path.只引入了seedsui-react 2.seedsui-react和组件都引入了
   let existsCount = 0
   recast.visit(ast, {
@@ -14,8 +14,8 @@ function exists(ast, componentName) {
       }
 
       const importSource = path.node.source.value
-      if (importSource === 'seedsui-react') {
-        console.log(`Only SeedsUI was imported, but the ${componentName} was not!`)
+      if (importSource === componentLibrary) {
+        console.log(`Only ${componentLibrary} was imported, but the ${componentName} was not!`)
         existsCount = path
         return false
       }

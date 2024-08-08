@@ -1,8 +1,15 @@
 // 快捷选择
 module.exports = {
-  '<Actionsheet': {
-    description: 'Actionsheet',
-    code: `<Actionsheet.Combo
+  web: {
+    Button: {
+      description: 'Comming soon',
+      code: `<Button onClick={handleSave}>{locale('')}</Button>`
+    }
+  },
+  mobile: {
+    '<Actionsheet': {
+      description: 'Actionsheet',
+      code: `<Actionsheet.Combo
         // placeholder="Please select"
         // value={value}
         // list={list}
@@ -19,22 +26,22 @@ module.exports = {
         //   return value?.[0]?.name || ''
         // }}
       />`
-  },
-  '<Badge': {
-    description: 'Badge',
-    code: `<Badge maxLength={2} ellipsis={'+'}>
+    },
+    '<Badge': {
+      description: 'Badge',
+      code: `<Badge maxLength={2} ellipsis={'+'}>
       1000
     </Badge>`
-  },
-  '<Button': {
-    description: 'Button',
-    code: `<Button className="primary" style={buttonStyle}>
+    },
+    '<Button': {
+      description: 'Button',
+      code: `<Button className="primary" style={buttonStyle}>
       primary
     </Button>`
-  },
-  '<Calendar': {
-    description: 'Calendar panel',
-    code: `<Calendar
+    },
+    '<Calendar': {
+      description: 'Calendar panel',
+      code: `<Calendar
       // type="month" // week | month
       // titleFormatter="YYYY年MM月", // 标题日期格式化 YYYY年MM月DD日 周E 第W周
       // value={null}
@@ -50,14 +57,14 @@ module.exports = {
       // Event: view change
       // onSlideChange={() => {}}
     />`
-  },
-  '<Card': {
-    description: 'Button',
-    code: `<Card>1000</Card>`
-  },
-  '<Cascader': {
-    description: 'Cascader',
-    code: `<Cascader.Combo
+    },
+    '<Card': {
+      description: 'Button',
+      code: `<Card>1000</Card>`
+    },
+    '<Cascader': {
+      description: 'Cascader',
+      code: `<Cascader.Combo
       // list={list}
       // loadData={loadData}
       // value={value}
@@ -72,44 +79,44 @@ module.exports = {
       //   caption: '级联选择'
       // }}
     />`
-  },
-  '<Chat': {
-    description: 'Chat',
-    code: `<Chat caption="11">1000</Chat>
+    },
+    '<Chat': {
+      description: 'Chat',
+      code: `<Chat caption="11">1000</Chat>
     <Chat caption="11" className="right">
       1000
     </Chat>`
-  },
-  '<Checkbox': {
-    description: 'Chat',
-    code: `<Checkbox
+    },
+    '<Checkbox': {
+      description: 'Chat',
+      code: `<Checkbox
       // checked={value}
       // onChange={setValue}
     >
       checkbox
     </Checkbox>`
-  },
-  Clipboard: {
-    description: 'Clipboard',
-    code: `Clipboard.copy('https://colaboy.github.io/seedsui-react/', {
+    },
+    Clipboard: {
+      description: 'Clipboard',
+      code: `Clipboard.copy('https://colaboy.github.io/seedsui-react/', {
       success: () => {
         Toast.show({ content: 'Copy to clipboard success!' })
       }
     })`
-  },
-  '<Col': {
-    description: 'Col',
-    code: `<Col span={8} className="color-sub">
+    },
+    '<Col': {
+      description: 'Col',
+      code: `<Col span={8} className="color-sub">
       Customer Name:
     </Col>`
-  },
-  '<Counter': {
-    description: 'Counter',
-    code: `<Counter from={20} to={500} />`
-  },
-  '<DatePicker': {
-    description: 'DatePicker component',
-    code: `<DatePicker.Combo
+    },
+    '<Counter': {
+      description: 'Counter',
+      code: `<Counter from={20} to={500} />`
+    },
+    '<DatePicker': {
+      description: 'DatePicker component',
+      code: `<DatePicker.Combo
         placeholder="Please select"
         type="datetime"
         allowClear
@@ -118,10 +125,10 @@ module.exports = {
         // min={new Date()}
         // onChange={setValue}
     />`
-  },
-  '<Image': {
-    description: 'Image',
-    code: `<Image
+    },
+    '<Image': {
+      description: 'Image',
+      code: `<Image
       // list={list}
       // onBeforeChoose={handleBeforeChoose}
       // onReUpload={handleReUpload}
@@ -136,10 +143,10 @@ module.exports = {
       //   capture: 'camera'
       // }}
     />`
-  },
-  '<IndexBar': {
-    description: 'IndexBar',
-    code: `<div className="position-relative" style={{ height: '500px', overflow: 'hidden' }}>
+    },
+    '<IndexBar': {
+      description: 'IndexBar',
+      code: `<div className="position-relative" style={{ height: '500px', overflow: 'hidden' }}>
     <IndexBar>
         <div className="position-relative" style={{ height: '500px', overflow: 'auto' }}>
           <ul>
@@ -165,10 +172,10 @@ module.exports = {
         </div>
       </IndexBar>
     <div/>`
-  },
-  '<Input': {
-    description: 'Input',
-    code: `<Input.Text
+    },
+    '<Input': {
+      description: 'Input',
+      code: `<Input.Text
       inputProps={{
         // visible: false,
         style: {
@@ -181,24 +188,24 @@ module.exports = {
       maxLength={10}
       allowClear={'exclusion-ricon'}
     />`
-  },
-  '<Layout': {
-    description: 'Input',
-    code: `<Layout safeArea className="full">
+    },
+    '<Layout': {
+      description: 'Input',
+      code: `<Layout safeArea className="full">
       <Layout.Header>Header</Layout.Header>
       <Layout.Main>
         Main
       </Layout.Main>
       <Layout.Footer>Footer</Footer>
     </Layout>`
-  },
-  '<Loading': {
-    description: 'Loading',
-    code: `Loading.show()`
-  },
-  '<Location': {
-    description: 'Location',
-    code: `<Location.Combo
+    },
+    '<Loading': {
+      description: 'Loading',
+      code: `Loading.show()`
+    },
+    '<Location': {
+      description: 'Location',
+      code: `<Location.Combo
       // editable
       // 获取定位和地址工具类
       // type="wgs84"
@@ -227,10 +234,10 @@ module.exports = {
       //   console.log('定位状态:', status)
       // }}
     />`
-  },
-  '<Map': {
-    description: 'Map',
-    code: `<MapContainer
+    },
+    '<Map': {
+      description: 'Map',
+      code: `<MapContainer
       // ref={mapRef}
       // center={value}
       // zoom={14}
@@ -241,22 +248,22 @@ module.exports = {
       // }}
     >
     </MapContainer>`
-  },
-  '<Mark': {
-    description: 'Mark',
-    code: `<Mark className="primary" style={buttonStyle}>
+    },
+    '<Mark': {
+      description: 'Mark',
+      code: `<Mark className="primary" style={buttonStyle}>
       primary
     </Mark>`
-  },
-  '<Modal': {
-    description: 'Modal',
-    code: `Modal.alert({
+    },
+    '<Modal': {
+      description: 'Modal',
+      code: `Modal.alert({
       content: 'alert content'
     })`
-  },
-  '<Picker': {
-    description: 'Picker',
-    code: `<Picker.Combo
+    },
+    '<Picker': {
+      description: 'Picker',
+      code: `<Picker.Combo
         // placeholder="Please select"
         // value={value}
         // list={list}
@@ -265,25 +272,25 @@ module.exports = {
         //   setValue(newValue)
         // }}
       />`
-  },
-  '<QRCode': {
-    description: 'QRCode',
-    code: `<QRCode text={url}>
+    },
+    '<QRCode': {
+      description: 'QRCode',
+      code: `<QRCode text={url}>
       <img style={Logo} alt="" src="//res.waiqin365.com/d/dinghuo365/logo.png" />
     </QRCode>`
-  },
-  '<Radio': {
-    description: 'Radio',
-    code: `<Radio
+    },
+    '<Radio': {
+      description: 'Radio',
+      code: `<Radio
       // checked={value}
       // onChange={setValue}
     >
       radio
     </Radio>`
-  },
-  '<Row': {
-    description: 'Row',
-    code: `<Row className="border-b" style={{ padding: '10px 0', marginLeft: '12px' }}>
+    },
+    '<Row': {
+      description: 'Row',
+      code: `<Row className="border-b" style={{ padding: '10px 0', marginLeft: '12px' }}>
       <Col span={8} className="color-sub">
         Customer Name:
       </Col>
@@ -293,14 +300,14 @@ module.exports = {
       </Col>
       <Col span={16}>Twenty-eight</Col>
     </Row>`
-  },
-  '<SafeArea': {
-    description: 'SafeArea',
-    code: `<SafeArea />`
-  },
-  '<Select': {
-    description: 'Select',
-    code: `<Select.Combo
+    },
+    '<SafeArea': {
+      description: 'SafeArea',
+      code: `<SafeArea />`
+    },
+    '<Select': {
+      description: 'Select',
+      code: `<Select.Combo
       // placeholder="Please select"
       // value={value}
       // list={list}
@@ -309,10 +316,10 @@ module.exports = {
       //   setValue(newValue)
       // }}
     />`
-  },
-  '<Selector': {
-    description: 'Selector',
-    code: `<Selector
+    },
+    '<Selector': {
+      description: 'Selector',
+      code: `<Selector
       // multiple
       // value={value}
       // list={list}
@@ -321,10 +328,10 @@ module.exports = {
       //   setValue(newValue)
       // }}
     />`
-  },
-  '<Signature': {
-    description: 'Signature',
-    code: `<Signature.Combo
+    },
+    '<Signature': {
+      description: 'Signature',
+      code: `<Signature.Combo
       // placeholder="Please select"
       // value={value}
       // list={list}
@@ -334,10 +341,10 @@ module.exports = {
       //   setValue(newValue)
       // }}
     />`
-  },
-  '<Switch': {
-    description: 'Switch',
-    code: `<Switch
+    },
+    '<Switch': {
+      description: 'Switch',
+      code: `<Switch
       className="notext"
       // disabled
       checked={checked}
@@ -345,26 +352,26 @@ module.exports = {
       uncheckedProps={{ text: '关' }}
       onChange={setChecked}
     />`
-  },
-  '<Tabs': {
-    description: 'Tabs',
-    code: `<Tabs
+    },
+    '<Tabs': {
+      description: 'Tabs',
+      code: `<Tabs
       className="tabs-line tabs-line-width-percent80 border-b"
       // style={{ height: 100 }}
       // list={list}
       // value={value}
       // onChange={handleChange}
     />`
-  },
-  Toast: {
-    description: 'Toast',
-    code: `Toast.show({
+    },
+    Toast: {
+      description: 'Toast',
+      code: `Toast.show({
       content: 'content'
     })`
-  },
-  '<Tooltip': {
-    description: 'Tooltip',
-    code: `<Tooltip
+    },
+    '<Tooltip': {
+      description: 'Tooltip',
+      code: `<Tooltip
       content={<p>123412341234</p>}
       onVisibleChange={(visible) => {
         console.log('visible:', visible)
@@ -372,10 +379,10 @@ module.exports = {
     >
       <div style={{ margin: 100 }}>点击</div>
     </Tooltip>`
-  },
-  '<Transfer': {
-    description: 'Transfer',
-    code: `<Transfer.Combo
+    },
+    '<Transfer': {
+      description: 'Transfer',
+      code: `<Transfer.Combo
       modal="page"
       multiple
       className="border-b"
@@ -402,10 +409,10 @@ module.exports = {
         )
       }}
     />`
-  },
-  '<TreePicker': {
-    description: 'Transfer',
-    code: `<TreePicker.Combo
+    },
+    '<TreePicker': {
+      description: 'Transfer',
+      code: `<TreePicker.Combo
       placeholder="Please select"
       value={value}
       list={treeData}
@@ -449,10 +456,10 @@ module.exports = {
         console.log('visible:', visible)
       }}
     />`
-  },
-  '<Upload': {
-    description: 'Upload',
-    code: `<Upload
+    },
+    '<Upload': {
+      description: 'Upload',
+      code: `<Upload
       list={list}
       onBeforeChoose={() => {
         return new Promise((resolve) => {
@@ -471,5 +478,6 @@ module.exports = {
         capture: 'camera'
       }}
     />`
+    }
   }
 }

@@ -5,7 +5,7 @@ const create = require('./create')
 const insert = require('./insert')
 const save = require('./save')
 
-async function insertImport(componentName) {
+async function insertImport(componentName, componentLibrary) {
   if (componentName.indexOf('<') !== -1) {
     componentName = componentName.replace('<', '')
   }
@@ -31,14 +31,14 @@ async function insertImport(componentName) {
   }
 
   // This component was imported, 0.无 path.只引入了seedsui-react 2.seedsui-react和组件都引入了
-  const existsCount = exists(ast, componentName)
+  const existsCount = exists(ast, componentName, componentLibrary)
   if (existsCount === 2) {
     return
   }
 
   // Neither SeedsUI nor component were imported, create import
   if (existsCount === 0) {
-    create(ast, componentName)
+    create(ast, componentName, componentLibrary)
   }
   // Only SeedsUI was imported, import component
   else {
