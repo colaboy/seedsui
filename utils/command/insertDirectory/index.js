@@ -2,7 +2,6 @@ const vscode = require('vscode')
 const path = require('path')
 
 const fs = require('fs')
-const pages = require('./../../utils/pages')
 
 // Recursion and copy directory
 function copyDirectory(source, dest) {
@@ -37,19 +36,18 @@ function getActiveDirectory() {
 }
 
 // Entry choose
-async function insertDirectory(pageName, folderPath) {
+async function insertDirectory(pageName, sourcePath, folderPath) {
   const rootPath = vscode.workspace.workspaceFolders?.[0].uri.fsPath
   if (!rootPath) {
     vscode.window.showErrorMessage('No folder or workspace opened')
     return false
   }
   // Template Directory
-  let sourceDir = path.join(rootPath, `src/library/components/Example/${pageName}`)
+  let sourceDir = path.join(rootPath, sourcePath)
 
   // Not found the template directory
   if (!fs.existsSync(sourceDir)) {
-    // sourceDir = path.join(__dirname, `pages/${pageName}`)
-    vscode.window.showErrorMessage('Check if "src/library" directory in your project')
+    vscode.window.showErrorMessage(`No such directory: ${sourcePath}`)
     return false
   }
 
@@ -60,8 +58,6 @@ async function insertDirectory(pageName, folderPath) {
   // Specified directory
   if (folderPath) {
     destDir = path.join(folderPath, `${pageName}`)
-    console.log('Specified directory:', folderPath, destDir)
-    console.log('\n')
   }
   // Use the directory that got for the current editing
   else if (activeDirectory) {

@@ -10,7 +10,7 @@ const insertDirectory = require('./insertDirectory/index.js')
 // 插入代码片段
 function command(context) {
   const projectName = getProjectName()
-  console.log('项目名称: ' + projectName)
+  const platform = projectName.includes('web') ? 'web' : 'mobile'
 
   // 跳转官网
   const officialCommand = vscode.commands.registerCommand('official', function () {
@@ -37,14 +37,14 @@ function command(context) {
   // 页面选择
   const pagesCommand = vscode.commands.registerCommand('pages', function (folderUri) {
     // 弹出选择列表
-    vscode.window
-      .showQuickPick(Object.keys(pages[projectName.includes('web') ? 'web' : 'mobile']))
-      .then(async (pageName) => {
-        if (!pageName) {
-          return
-        }
-        insertDirectory(pageName, folderUri?.path)
-      })
+    vscode.window.showQuickPick(Object.keys(pages[platform])).then(async (pageName) => {
+      let sourcePath = pages[platform]?.[pageName]?.url
+      if (!sourcePath) {
+        vscode.window.showErrorMessage(`Option is not found: ${pageName}`)
+        return
+      }
+      insertDirectory(pageName, sourcePath, folderUri?.path)
+    })
   })
   context.subscriptions.push(pagesCommand)
 }
